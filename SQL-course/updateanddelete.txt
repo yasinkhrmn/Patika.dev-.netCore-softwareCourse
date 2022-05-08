@@ -1,0 +1,26 @@
+-- BİR TABLODA VERİYİ GÜNCELLEMEK, EN SONA EKLER
+
+UPDATE auther
+SET first_name = 'Yasin',
+	last_name = 'Kahraman',
+	email = 'yasin@kahraman.com',
+	birthdar = 31
+WHERE id = 2;
+
+-- YAPILAN İŞLEMLERİ GERİ DÖNDÜRÜR
+
+UPDATE auther
+SET last_name = 'XxXxX'
+WHERE last_name = 'Balmann'
+RETURNING *;
+
+-- VERİ SİLMEK
+
+DELETE FROM auther
+WHERE id = 10;
+
+-- YAPILAN İŞLEMLER GERİ DÖNER, VERİ SİLMEK
+
+DELETE FROM auther
+WHERE id > 10
+RETURNING *;

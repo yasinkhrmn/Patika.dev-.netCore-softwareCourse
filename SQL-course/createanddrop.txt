@@ -1,0 +1,37 @@
+-- CREATING TABLE
+
+CREATE TABLE my_personal_books (
+	book_id SERIAL PRIMARY KEY,
+	book_name VARCHAR(50) NOT NULL,
+	auther_name VARCHAR(50) NOT NULL,
+	auther_surname VARCHAR(50) NOT NULL,
+	book_pages INTEGER NOT NULL
+);
+
+-- ADDING VALUES TO TABLE
+
+INSERT INTO my_personal_books (book_name, auther_name, auther_surname, book_pages)
+VALUES
+	('İrade terbiyesi', 'Jules', 'PayJot', 100),
+	('Atomik alışkanlıklar', 'James', 'Clear', 300),
+	('Dünya tarihi 1.cilt ilkçağ', 'Susan Wise', 'Bauer', 300),
+	('Felsefe tarihi', 'Nigel', 'Warburton', 200);
+
+-- TABLO YAPISINI BAŞKA BİR TABLOYA AKTARMAK
+
+CREATE TABLE itsnewone (LIKE my_personal_books)
+
+-- TABLODAKİ VERİLERİ BAŞKA BİR TABLOYA KOPYALAMAK
+
+INSERT INTO itsthenewone
+SELECT * FROM my_personal_books
+WHERE book_name = 'İrade terbiyesi';
+
+-- YENİ BİR TABLOYU, BAŞKA BİR TABLODAN VERİLERİ ALARAK OLUŞTURMAK
+
+CREATE TABLE yeniolan AS
+SELECT * FROM my_personal_books;
+
+-- TABLOYU SİLMEK (IF EXISTS)
+
+DROP TABLE IF EXISTS yeniolan;

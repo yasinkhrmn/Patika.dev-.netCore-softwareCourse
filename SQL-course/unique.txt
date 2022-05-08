@@ -1,0 +1,4 @@
+-- BELİRTİLEN SÜTUN SADECE EŞŞİZ KARAKTERLEDEN OLUŞUR
+
+ALTER TABLE <tablo_adı>
+ADD UNIQUE <sütun_adı>

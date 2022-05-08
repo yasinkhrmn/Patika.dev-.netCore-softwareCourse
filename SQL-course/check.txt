@@ -1,0 +1,14 @@
+-- VAR OLAN TABLOYA CHECK UYGULAMAK İSTERSEK
+
+ALTER TABLE table_name
+ADD CHECK (sütun_isim > 10);
+
+-- YENİ BİR TABLO OLUŞTURURKEN CHECK
+
+CREATE TABLE table_name (
+	product_no integer,
+	name text,
+	price numeric CHECK (price > 0),
+	discounted_price numeric CHECK (discounted_price > 0),
+	CHECK (price > discounted_price)
+);
